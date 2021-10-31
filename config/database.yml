@@ -18,5 +18,3 @@ test:
 production:
   <<: *default
   database: DBName_Production
-  username: postgres
-  password: reuyhgxjraom3q84tciu
