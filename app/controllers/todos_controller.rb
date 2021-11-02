@@ -21,13 +21,13 @@ class TodosController < ApplicationController
         task = project[0].tasks.new(pr_params[:task][0])
         if task.save
             task = find_task(task.id)
-            foo = {
+            project = {
                 'id' => project[0].id,
                 'title' => project[0].title,
                 'task' => task
               }
 
-            render json: foo, status: 201
+            render json: project, status: 201
         else
             render json: {errors: task.errors}, status: :unprocessable_entity
         end
