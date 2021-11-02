@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: DBName_Development
+  database: Todo_Development
 
 test:
   <<: *default
-  database: DBName_Test
+  database: Todo_Test
 
 production:
   <<: *default
-  database: DBName_Production
+  database: Todo_Production
