@@ -29,7 +29,8 @@ class ProjectController < ApplicationController
 
     def update
         task = Task.find(params[:id])
-        if task.update(task_params)
+
+        if task.update({isCompleted:!task_params[:isCompleted]})
             task = find_task(params[:id])
             render json: task, status: :ok
         else
@@ -38,7 +39,7 @@ class ProjectController < ApplicationController
     end
     private
     def task_params
-        params.require(:task).permit(:"isCompleted")
+        params.require(:task).permit(:id, :text, :"isCompleted")
     end
 
     def find_task id
