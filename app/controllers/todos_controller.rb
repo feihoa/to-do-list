@@ -24,7 +24,7 @@ class TodosController < ApplicationController
             project = {
                 'id' => project[0].id,
                 'title' => project[0].title,
-                'task' => task
+                'todos' => task
               }
 
             render json: project, status: 201
