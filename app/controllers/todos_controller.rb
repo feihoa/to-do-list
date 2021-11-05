@@ -18,7 +18,7 @@ class TodosController < ApplicationController
 
         end
 
-        task = project[0].tasks.new(pr_params[:task][0])
+        task = project[0].tasks.new({text:pr_params[:text], isCompleted: false})
         if task.save
             task = find_task(task.id)
             project = {
@@ -35,7 +35,7 @@ class TodosController < ApplicationController
 
     private
     def pr_params
-        params.require(:project).permit(:title, task:[:text, :"isCompleted"])
+        params.require(:task).permit(:title, :text)
     end
 
     def find_project id
