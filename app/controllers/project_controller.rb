@@ -32,7 +32,8 @@ class ProjectController < ApplicationController
 
         if task.update({isCompleted:!task_params[:isCompleted]})
             task = find_task(params[:id])
-            render json: task, status: :ok
+
+            render json: task[0], status: :ok
         else
             render json: {errors: tasks.errors}, status: :unprocessable_entity
         end 
