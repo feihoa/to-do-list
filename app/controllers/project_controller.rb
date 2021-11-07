@@ -4,7 +4,7 @@ class ProjectController < ApplicationController
 
     def index
         @projects = Project.all()
-        @tasks = Task.all()
+        @tasks = Task.all().order(created_at: :asc)
 
         projects_json = []
         @projects.each_with_index do |project, index|
